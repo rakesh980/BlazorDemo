@@ -1,0 +1,22 @@
+﻿@page "/"
+@inherits EmployeeListBase
+
+    <h3>Fighter Aircrafts</h3>
+<input type="checkbox" id="ShowFooter" @bind="ShowFooter"/>
+<label for="ShowFooter">Show toolbar</label>
+@if (Employees == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <div class="card-deck">
+        @foreach (var employee in Employees)
+        {
+
+            <DisplayEmployeet Employee="employee" ShowFooter="ShowFooter"
+                              OnEmployeeSelection="EmployeeSelectionChanged"
+                              ></DisplayEmployeet>
+        }
+    </div>
+}
